@@ -1,0 +1,6 @@
+name: pulumi-python-acls
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: A Python Pulumi program to manage Tailscale ACLs
