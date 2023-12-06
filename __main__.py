@@ -19,7 +19,7 @@ template_string = """
             "cameron@example.com",
         ],
     },
-	"tagOwners": {
+    "tagOwners": {
         "tag:deployer":          [], // Used by Pulumi
         "tag:saas":              ["tag:deployer"],
         "tag:customer-deployer": ["tag:deployer"],
@@ -28,18 +28,18 @@ template_string = """
         {% for c in customer_list %}
         "tag:customer-{{ c.customerName }}": ["tag:customer-deployer"], // TODO: move tag:customers to a constant
         {% endfor %}
-	},
-	"autoApprovers": {
-		"routes": {
-			"10.0.0.0/24":  ["tag:saas"],
+    },
+    "autoApprovers": {
+        "routes": {
+            "10.0.0.0/24":  ["tag:saas"],
 
             // customers
             {% for c in customer_list %}
             "{{ c.customerSubnet }}": ["tag:customer-{{ c.customerName }}"],
             {% endfor %}
-		},
-	},
-	"acls": [
+        },
+    },
+    "acls": [
         { // general access
             "action": "accept",
             "src": [
