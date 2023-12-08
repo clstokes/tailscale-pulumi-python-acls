@@ -34,7 +34,7 @@ template_string = """
 
         // customers
         {% for c in customer_list %}
-        "tag:customer-{{ c.customerName }}": ["tag:customer-deployer"], // TODO: move tag:customers to a constant
+        "tag:customer-{{ c.customerName }}": ["tag:customer-deployer"],
         {% endfor %}
     },
     "autoApprovers": {
